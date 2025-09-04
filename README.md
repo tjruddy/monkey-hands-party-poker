@@ -2,7 +2,7 @@
 
 
 
-A browser-based poker game I built for my \*\*Web II\*\* class in \*\*2021\*\*.
+A browser-based poker game I built for my **Web II** class in **2021**.
 
 
 
@@ -29,7 +29,7 @@ Open `intro.html` in your browser.
 
 
 
-\## Background
+## Background
 
 Class project from 2021; published now for portfolio/history.
 

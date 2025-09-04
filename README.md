@@ -1,4 +1,4 @@
-\# Monkey Hands Party Poker
+# Monkey Hands Party Poker
 
 
 
@@ -6,25 +6,24 @@ A browser-based poker game I built for my \*\*Web II\*\* class in \*\*2021\*\*.
 
 
 
-\## Tech
+## Tech
 
-\- HTML, CSS, JS
-
-
-
-\## Features
-
-\- Bet / Check / Discard / Shuffle / Deal Cards
-
-\- Adjustable bet (± buttons + custom amount)
-
-\- Round results (win/lose)
-
-\- Animated intro
+- HTML, CSS, JS
 
 
+## Features
 
-\## Run
+- Bet / Check / Discard / Shuffle / Deal Cards
+
+- Adjustable bet (± buttons + custom amount)
+
+- Round results (win/lose)
+
+- Animated intro
+
+
+
+## Run
 
 Open `intro.html` in your browser.
 

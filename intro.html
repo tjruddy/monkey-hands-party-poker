@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey Hands Party Poker - Intro</title>
+    <link rel="stylesheet" type="text/css" href="./styles/intro.css">
+    <link rel="icon" href="./images/icon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="intro-container">
+        <div class="animated-background">
+            <div class="floating-card card-1">♠</div>
+            <div class="floating-card card-2">♥</div>
+            <div class="floating-card card-3">♦</div>
+            <div class="floating-card card-4">♣</div>
+            <div class="floating-card card-5">♠</div>
+            <div class="floating-card card-6">♥</div>
+        </div>
+
+        <div class="intro-content">
+            <div class="title-container">
+                <h1 class="main-title">Monkey Hands</h1>
+                <h2 class="subtitle">Party Poker</h2>
+                <div class="monkey-container">
+                    <img src="images/monkey.gif" alt="Monkey" class="monkey-intro">
+                </div>
+            </div>
+
+            <div class="loading-container">
+                <div class="loading-text" id="loadingText">Loading...</div>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+
+            <div class="signup-container">
+                <button class="signup-btn" onclick="goToSignUp()">Sign Up</button>
+            </div>
+
+        </div>
+
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <script>
+        function goToSignUp() {
+            createConfetti();
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000);
+        }
+
+        // Change loading text when bar is complete
+        setTimeout(() => {
+            const loadingText = document.getElementById('loadingText');
+            if (loadingText) {
+                loadingText.textContent = 'Ready!';
+                loadingText.style.color = '#44967c';
+            }
+        }, 5500); // 2s delay + 3.5s loading = 5.5s total
+
+        document.addEventListener('click', () => {
+            createConfetti();
+        });
+
+        function createConfetti() {
+            const colors = ['#44967c', '#FCEBC5', '#274e75'];
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

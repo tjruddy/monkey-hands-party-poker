@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monkey Hands | Poker</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./styles/game.css" />
+    <link rel="icon" href="./images/icon.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <img
+        class="img-fluid size"
+        src="./images/banner.png"
+        alt="banner"
+        width="1920"
+      />
+    </header>
+    <!-- end header -->
+
+    <!-- home screen -->
+    <div class="home-screen">
+
+      <div id="welcome" class="welcome">      
+
+        <div class="monkey"></div>
+
+        <div class="wc-message">
+          Welcome <span id="first"></span>! <br />
+          If you look at the bottom of the page, you will be able to view your
+          information.
+        </div>
+
+        <img
+          id="swing"
+          class="swing-img swing w3-hide-small"
+          src="./images/monkey-vine.png"
+          width="150px"
+        />
+
+      </div>
+
+   
+
+      <div class="button-control">
+
+        <div>
+          <div class="title-text">Set Your Bet</div>
+
+          <div class="bet-input-container">
+            <input type="number" id="betInput" class="bet-input" value="2" min="2" max="1000" onchange="game.setBet(this.value)">
+            <div id="betError" class="bet-error" style="display: none;"></div>
+          </div>
+
+          <button id="less" class="icon-btn add-btn" onclick="game.decreaseBet()">
+            <div class="btn-symbol">-</div>
+            <div class="btn-txt">Decrease</div>
+          </button>
+
+          <button id="more" class="icon-btn add-btn" onclick="game.increaseBet()">
+            <div class="add-icon"></div>
+            <div class="btn-symbol">+</div>
+            <div class="btn-txt">Increase</div>
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="menu-btns">
+
+        <div>
+          <button class="button" id="play-btn" onclick="game.play()"><span>Play </span></button>
+        </div>
+
+        <div>
+          <button class="button" id="rules-btn" onclick="game.showRules()"><span>Rules </span></button>
+        </div>
+
+        <div class="game-rules" id="rules">
+          <div class="rules-box">
+            <div class="table-border">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Hand</th>
+                    <th>Description</th>
+                    <th>Payout (bet +)</th>
+                  </tr>
+                  <tr>
+                    <td>Plebs party</td>
+                    <td>All cards 10 and below (no matter what suit)</td>
+                    <td>2 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Royal party</td>
+                    <td>All cards Jack and above (no matter what suit)</td>
+                    <td>4 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>3 of A Kind</td>
+                    <td>3 cards of the same rank (no matter what suit)</td>
+                    <td>8 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Straight</td>
+                    <td>5 cards in sequence (no matter what suit)</td>
+                    <td>16 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Flush</td>
+                    <td>5 cards of same suit (diamonds, hearts, clubs, or spades)</td>
+                    <td>32 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Kings and Queens party</td>
+                    <td>All cards either kings or queens (no matter what suit)</td>
+                    <td>64 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>
+                      All the numbers in the hand equal 18 (do not count face cards)
+                    </td>
+                    <td>128 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Straight Flush</td>
+                    <td>5 cards of same suit in sequence</td>
+                    <td>256 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Royal Flush</td>
+                    <td>
+                      5 cards of same suit in sequence starting with the Ace high
+                      <br />
+                      (Ace, King, Queen, Jack, Ten)
+                    </td>
+                    <td>512 * bet</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="button" id="quit-btn" onclick="game.exitMessage()"><span>Quit Game </span></button>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- end home-screen -->
+
+
+    <!-- game-screen -->
+    <div class="game-screen">
+
+        <div class="title-text" id="yourBet"> Your Beat: </div>
+
+        <div class="game-btns">
+          <button class="" id="discard" onclick="game.discarding()">Discard Selected Cards</button>
+          <button class="" id="check" onclick="game.checkWin()">Check Hand</button>
+        </div>
+
+        <div class="board-box">
+          <div class="game-board">
+            <div id="board">
+              <!--  -->
+            </div>
+          </div>
+        </div>
+
+        <div class="exit-btns">
+          
+          <button id="rules-btn-game" onclick="game.showRulesInGame()">
+            <i class="fas fa-book"></i>
+          </button>
+
+          <button id="home-btn" onclick="game.backToHome()">
+            <i class="fa fa-home"></i>
+          </button>
+
+          <button id="exit-btn" onclick="game.exitMessage()">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+
+        </div>
+
+        <div class="game-rules" id="rules-game">
+          <div class="rules-box">
+            <div class="table-border">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Hand</th>
+                    <th>Description</th>
+                    <th>Payout (bet +)</th>
+                  </tr>
+                  <tr>
+                    <td>Plebs party</td>
+                    <td>All cards 10 and below (no matter what suit)</td>
+                    <td>2 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Royal party</td>
+                    <td>All cards Jack and above (no matter what suit)</td>
+                    <td>4 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>3 of A Kind</td>
+                    <td>3 cards of the same rank (no matter what suit)</td>
+                    <td>8 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Straight</td>
+                    <td>5 cards in sequence (no matter what suit)</td>
+                    <td>16 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Flush</td>
+                    <td>5 cards of same suit (diamonds, hearts, clubs, or spades)</td>
+                    <td>32 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Kings and Queens party</td>
+                    <td>All cards either kings or queens (no matter what suit)</td>
+                    <td>64 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>
+                      All the numbers in the hand equal 18 (do not count face cards)
+                    </td>
+                    <td>128 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Straight Flush</td>
+                    <td>5 cards of same suit in sequence</td>
+                    <td>256 * bet</td>
+                  </tr>
+                  <tr>
+                    <td>Royal Flush</td>
+                    <td>
+                      5 cards of same suit in sequence starting with the Ace high
+                      <br />
+                      (Ace, King, Queen, Jack, Ten)
+                    </td>
+                    <td>512 * bet</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <!-- end game-screen -->
+
+    <!-- Result Modal - moved outside game-screen -->
+    <div id="resultModal" class="modal">
+      <div class="modal-content">
+        <div class="button-control">
+          <div>
+            <div class="title-text" id="winResult">You win: </div>
+            <div class="title-text" id="winBankroll">Your current balance: </div>
+            <div class="title-text">Return to Home to Bet and Play Again </div>
+            <div class="exit-btns">
+              <button id="home-btn" onclick="game.backToHome()">
+                <i class="fa fa-home"></i>
+              </button>
+
+              <button id="exit-btn" onclick="game.exitMessage()">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- exit-screen -->
+    <div class="exit-screen">
+
+      <div class="farewell">
+        <div>
+          <img src="images/monkey.gif" alt="Monkey" class="exit-monkey">
+          
+          <div class="title-text">
+            Your friendly host would like to thank you for playing Monkey Hands
+            Party Poker!
+          </div>
+
+          <div class="title-text">
+            <span id="first3"></span>, you are leaving with $<span id="bankroll2"></span>!!!
+          </div>
+
+          <button onclick="game.exitGame()">Ok</button>
+        </div>
+      </div>
+    </div>
+    <!-- end exit-screen -->
+
+    <!-- footer  -->
+    <footer>
+      <div>
+        <ul class="footer">
+          <li><span id="first2"></span></li>
+          <li><span id="last"></span></li>
+          <br />
+          <li><span id="phone"></span></li>
+          -
+          <li><span id="city"></span></li>
+          -
+          <li><span id="email"></span></li>
+          <br />
+          <li><span id="user"></span></li>
+          -
+          <li>$<span id="bankroll"></span></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- scripts -->    
+
+
+    <script src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script type="text/javascript" src="./js/process.js"></script>
+    <script type="text/javascript" src="./js/game.js"></script>
+
+    <script>
+      var user = new User(username,bankroll,2);
+      var game = new Game(user);
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    </script>
+    <!-- end scripts -->
+
+  </body>
+</html>

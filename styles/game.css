@@ -1,0 +1,880 @@
+@font-face {
+    font-family: 'Original Surfer';
+    src: url('../fonts/OriginalSurfer-Regular.ttf');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  background-color: #d3e3de;
+}
+
+
+header {
+
+}
+
+header img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+footer {
+  text-align: center;
+  margin: 50px 0 0 0;
+  padding: 5px;
+  color: #ffffff;
+  background: linear-gradient(#44967c, #274e75);
+  width: 100%;
+}
+
+footer div ul {
+  margin: 10px 0;
+  padding: 0;
+}
+
+footer div ul li {
+  color: #ffffff;
+  list-style: none;
+  text-decoration: none;
+  display: inline;
+}
+
+button {
+  cursor: pointer;
+}
+
+.home-screen {
+  display: block;
+}
+
+.home-screen .welcome {
+  margin-top: 20px;
+  width: 100%;
+  height: 120px;
+  position: relative;
+}
+
+.home-screen .welcome .monkey {
+  background-color: white;
+  border: 2px solid gray;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  background-image: url(../images/monkey.gif);
+  background-size: 90% 85%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 5%;
+  top: -15px;
+  display: block;
+}
+
+.home-screen .welcome .wc-message {
+  width: 80%;
+  height: 100px;
+  margin: auto;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid gray;
+  background-color: #44967c;
+  padding: 10px 5px 10px 65px;
+  text-align: center;
+  font-size: 1.3rem;
+  display: block;
+}
+
+.last-visit {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.credentials-mismatch {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+
+.mismatch-message {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mismatch-message p {
+  color: white;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.change-credentials-link {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.change-credentials-link:hover {
+  color: #f8f9fa;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.home-screen .welcome .swing {
+  position: absolute;
+  right: 10%;
+  top: 80px;
+  z-index: -1;
+  display: block;
+}
+
+.home-screen .welcome .swing-img {
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+@-webkit-keyframes swinging {
+  0% {
+    -webkit-transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+  }
+}
+
+@keyframes swinging {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+.home-screen .button-control {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.home-screen .menu-btns {
+  margin-top: 40px;
+}
+
+.home-screen .game-rules {
+  width: 100%;
+  margin-top: 20px;
+  display: none;
+}
+
+.game-screen .game-rules {
+  width: 100%;
+  margin-top: 20px;
+  display: none;
+}
+
+.game-screen .game-rules .rules-box {
+  display: flex; 
+  justify-content: center;
+}
+
+.game-screen .game-rules .table-border {
+  margin: 0 20px;
+  padding: 20px;
+  border: 5px solid #44967c;
+  border-radius: 20px 5px 20px 0px;
+}
+
+.game-screen .game-rules table,
+.game-screen .game-rules th,
+.game-screen .game-rules td {
+  border: 1px solid #44967c;
+  border-collapse: collapse;
+  background-color: #fff;
+  padding: 3px 6px;
+  font-size: 1.2rem
+}
+.home-screen .game-rules .rules-box {
+  display: flex; 
+  justify-content: center;
+}
+
+.home-screen .game-rules .table-border {
+  margin: 0 20px;
+  padding: 20px;
+  border: 5px solid #44967c;
+  border-radius: 20px 5px 20px 0px;
+}
+
+.home-screen .game-rules table,
+.home-screen .game-rules th,
+.home-screen .game-rules td {
+  border: 1px solid #44967c;
+  border-collapse: collapse;
+  background-color: #fff;
+  padding: 3px 6px;
+  font-size: 1.2rem
+}
+
+.bet-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.bet-input {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #44967c;
+  border: 2px solid #44967c;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  margin-bottom: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+  -moz-appearance: textfield;
+  touch-action: manipulation;
+}
+
+.bet-input::-webkit-outer-spin-button,
+.bet-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bet-input:focus {
+  border-color: #2c604e;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(68, 150, 124, 0.3);
+}
+
+.bet-input:hover {
+  border-color: #2c604e;
+  background-color: #ffffff;
+}
+
+.bet-error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bet-text {
+  margin: 5px 0;
+  color: #44967c;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #44967c;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.2s ease-in-out;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.add-btn:hover {
+  width: 120px;
+}
+.add-btn::before,
+.add-btn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: #44967c;
+}
+.add-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.add-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.icon-btn:focus {
+  outline: none;
+}
+
+.icon-btn:hover {
+  background-color: #44967c9d;
+  color: #ffffff69;
+}
+
+.icon-btn i {
+  color: #FCEBC5;
+}
+
+/* Prevent opacity changes on mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .icon-btn {
+    opacity: 1 !important;
+    background-color: #44967c !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+  }
+  
+  .icon-btn:active {
+    opacity: 1 !important;
+    background-color: #44967c !important;
+    transform: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+  }
+  
+  .icon-btn:focus {
+    opacity: 1 !important;
+    background-color: #44967c !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+  }
+  
+  .icon-btn:focus:active {
+    opacity: 1 !important;
+    background-color: #44967c !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+  }
+  
+  .icon-btn:hover {
+    opacity: 1 !important;
+    background-color: #44967c !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+  }
+  
+  .icon-btn i {
+    color: #FCEBC5 !important;
+  }
+}
+
+.btn-symbol {
+  opacity: 1;
+  transition: opacity 0.2s;
+  color: #FCEBC5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Hide add-icon pseudo-elements for decrease button */
+#less .add-icon::before,
+#less .add-icon::after {
+  display: none;
+}
+
+.btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: #FCEBC5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.add-btn:hover::before,
+.add-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+
+.add-btn:hover .btn-txt {
+  opacity: 1;
+}
+
+.add-btn:hover .btn-symbol {
+  opacity: 0;
+}
+
+.add-btn:active .btn-txt {
+  opacity: 1;
+}
+
+.add-btn:active .btn-symbol {
+  opacity: 0;
+}
+
+.add-icon::after,
+.add-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  top: calc(50% - 10px);
+  background: #44967c;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.add-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.add-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.add-btn:hover .add-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+
+.add-btn:hover .add-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+
+.button {
+  width: 210px;
+  margin: 20px auto 0 auto;
+  background-color: #000;
+  border: 1px solid #000;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transform: skewX(-10deg);
+  height: 50px;
+  width: 200px;
+  border-radius: 20px 5px 20px 0px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font: 15px sans-serif;
+  font-weight: 300;
+  text-shadow: 0 0 20px #000;
+  text-transform: uppercase;
+  -webkit-animation: breath2 2s 0.5s infinite alternate;
+  animation: breath2 2s 0.5s infinite alternate;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-color: #a8ecff;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(48, 179, 255, 0.5),
+    rgba(29, 240, 99, 0.5)
+  );
+  box-shadow: 0 0 70px #308aff80, 0 5px 20px #308aff80, inset 0 1px #ffeca8,
+    inset 0 -1px #ffeca8;
+  color: #a8ecff;
+}
+
+.button:before {
+  content: "";
+  display: block;
+  width: calc(100% - 22px);
+  height: calc(50px - 8px);
+  -webkit-animation: breath 2s infinite alternate;
+  animation: breath 2s infinite alternate;
+  left: 10px;
+  top: 3px;
+  position: absolute;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 15px 3px 15px 3px;
+  box-shadow: inset 0 0 30px 0 #a8ecff;
+}
+
+.button:hover {
+  box-shadow: 0 0 70px rgba(48, 138, 255, 0.8),
+    0 5px 20px rgba(48, 138, 255, 0.8), inset 0 1px #a8ecff,
+    inset 0 -1px #a8ecff;
+}
+
+.button:hover:before {
+  box-shadow: inset 0 0 50px 0 #a8ecff;
+}
+
+.button + .button {
+  margin-top: 15px;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+@-webkit-keyframes breath {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.95);
+  }
+}
+
+@keyframes breath {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.95);
+  }
+}
+
+@-webkit-keyframes breath2 {
+  0% {
+    transform: skewX(-10deg) scaleX(1);
+  }
+  100% {
+    transform: skewX(-10deg) scaleX(0.95);
+  }
+}
+
+@keyframes breath2 {
+  0% {
+    transform: skewX(-10deg) scaleX(1);
+  }
+  100% {
+    transform: skewX(-10deg) scaleX(0.95);
+  }
+}
+
+/*end home-screen*/
+
+
+/*game-screen*/
+.game-screen {
+  display: none;
+}
+
+.title-text {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.2rem;
+  color: #44967c;
+  font-family: 'Original Surfer', cursive;
+}
+
+.game-btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.game-btns button {
+  background-color: #44967c;
+  border: none;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.game-btns button:hover {
+  background-color: #44967c9d;
+  color: #ffffff69;
+}
+
+.turn-display {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #44967c;
+  font-weight: bold;
+  font-family: 'Original Surfer', cursive;
+}
+
+.exit-btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.exit-btns button {
+  width: 50px;
+  height: 50px;
+  margin:0 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  border:none;
+  color: #FCEBC5;
+  background-color: #44967c;
+}
+
+.exit-btns button:hover {
+  background-color: #44967c9d;
+  color: #ffffff69;
+}
+
+.board-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.game-board {
+  margin-top: 20px;
+  width: 390px;
+  min-width: 390px;
+  height: 590px;
+  border: 10px solid #d2ab6f;
+  border-radius: 30px;
+}
+
+#board {
+  position: relative;
+  height: 570px;
+  border-radius: 20px;
+  background: hsl(161, 38%, 43%);
+  background-image: repeating-linear-gradient(
+  to top left,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 80px,
+    rgba(255, 255, 255, 0.2) 80px,
+    rgba(255, 255, 255, 0.2) 150px
+  );
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#board div {
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  z-index: 0;
+  transition-property: left, top, -webkit-transform;
+  transition-timing-function: ease-out, ease-out, ease-in-out;
+  transition-duration: 0.5s;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 30;
+  padding-top: 5%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 20px gray, 0 0 10px black;
+  text-align: center;
+  background-color: rgba(44,96,78,0.8);
+  border: 10px solid #d2ab6f;
+  border-radius: 10px;
+}
+
+.modal-content div {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #FCEBC5;
+}
+
+/*end game-screen*/
+
+/*out-of-money-screen*/
+.out-of-money-screen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d3e3de;
+  z-index: 1000;
+}
+
+.out-of-money-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.out-of-money-content .monkey {
+  background-color: white;
+  border: 2px solid gray;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  background-image: url(../images/monkey.gif);
+  background-size: 90% 85%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 30px;
+}
+
+.out-of-money-message h2 {
+  color: #dc3545;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Original Surfer', cursive;
+}
+
+.out-of-money-message p {
+  color: #2c604e;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.quit-account-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.quit-account-btn:hover {
+  background-color: #c82333;
+}
+
+/*exit-screen*/
+.exit-screen {
+  display: none;
+}
+
+.exit-screen .farewell {
+  min-height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.exit-screen .farewell div{
+  margin-top: 20px;
+}
+
+.exit-screen .farewell button{
+  width: 50px;
+  height: 50px;
+  margin:20px 10px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  color:white;
+  border:none;
+  background-color: #44967c;
+  font-family: 'Original Surfer', cursive;
+}
+
+.exit-screen .farewell button:hover{
+  background-color: #44967c9d;
+  color: #ffffff69;
+}
+
+.exit-monkey {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px){
+  html {
+    font-size: 14px;
+  }
+  .home-screen .welcome {
+  }
+  .home-screen .welcome .monkey {
+    display: none;
+  }
+  .home-screen .welcome .wc-message {
+    width: 96%;
+    padding: 5px;
+  }
+  .home-screen .welcome .swing {
+    display: none;
+  }
+}
